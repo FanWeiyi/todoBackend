@@ -1,0 +1,13 @@
+name: run project # workflow名
+on: push # workflow 触发器
+jobs: # 各个作业
+  run: # 一个叫做run的作业
+    runs-on: ubuntu-latest # 运行环境
+    steps: # 作业的各个步骤
+      - uses: actions/checkout@v3 # 模板，这个表示在actions组内
+      - uses: actions/setup-node@v3 # 同上
+        with:
+          node-version: "14" # 一些参数，详见对应仓库
+      - run: npm install -g yarn # 自定义命令
+      - run: yarn
+      - run: yarn start
