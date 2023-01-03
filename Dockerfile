@@ -1,7 +1,7 @@
 FROM node:14
 COPY ./ /app
 WORKDIR /app
-RUN yarn install && yarn build
+RUN npm i -g pnpm && pnpm install && pnpm build
 
 FROM nginx
 RUN mkdir /app
