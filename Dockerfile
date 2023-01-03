@@ -1,7 +1,7 @@
 FROM node:14
 COPY ./ /app
 WORKDIR /app
-RUN npm i -g pnpm && pnpm install && pnpm build
+RUN mkdir build && touch ./build/1
 
 FROM nginx
 RUN mkdir /app
